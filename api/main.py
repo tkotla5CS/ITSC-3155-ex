@@ -92,9 +92,7 @@ def read_resources(db: Session = Depends(get_db)):
 def read_resource(resource_id: int, db: Session = Depends(get_db)):
     return resources.read_one(db, resource_id=resource_id)
 
-@app.put("/resources/{resource_id}", response_model=schemas.Resource, tags=["Resources"])
-def update_resource(resource_id: int, resource: schemas.ResourceUpdate, db: Session = Depends(get_db)):
-    return resources.update(db, resource_id, resource)
+
 
 @app.delete("/resources/{resource_id}", tags=["Resources"])
 def delete_resource(resource_id: int, db: Session = Depends(get_db)):
